@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
 {
 $subjectname=$_POST['subjectname'];
 $subjectcode=$_POST['subjectcode']; 
-$sql="INSERT INTO  tblsubjects(SubjectName,SubjectCode) VALUES(:subjectname,:subjectcode)";
+$sql="INSERT INTO  tblsubjects(CourseTitle,CourseCode) VALUES(:subjectname,:subjectcode)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':subjectname',$subjectname,PDO::PARAM_STR);
 $query->bindParam(':subjectcode',$subjectcode,PDO::PARAM_STR);
@@ -88,7 +88,7 @@ $error="Something went wrong. Please try again";
                                         <div class="panel">
                                             <div class="panel-heading">
                                                 <div class="panel-title">
-                                                    <h5>Create Subject</h5>
+                                                    <h5>Create Course</h5>
                                                 </div>
                                             </div>
                                             <div class="panel-body">
@@ -103,13 +103,13 @@ else if($error){?>
                                         <?php } ?>
                                                 <form class="form-horizontal" method="post">
                                                     <div class="form-group">
-                                                        <label for="default" class="col-sm-2 control-label">Subject Name</label>
+                                                        <label for="default" class="col-sm-2 control-label">Course Title</label>
                                                         <div class="col-sm-10">
  <input type="text" name="subjectname" class="form-control" id="default" placeholder="Subject Name" required="required">
                                                         </div>
                                                     </div>
 <div class="form-group">
-                                                        <label for="default" class="col-sm-2 control-label">Subject Code</label>
+                                                        <label for="default" class="col-sm-2 control-label">Course Code</label>
                                                         <div class="col-sm-10">
  <input type="text" name="subjectcode" class="form-control" id="default" placeholder="Subject Code" required="required">
                                                         </div>
