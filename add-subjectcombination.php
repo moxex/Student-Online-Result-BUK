@@ -123,7 +123,7 @@ foreach($results as $result)
                                                         </div>
                                                     </div>
 <div class="form-group">
-                                                        <label for="default" class="col-sm-2 control-label">Subject</label>
+                                                        <label for="default" class="col-sm-2 control-label">Course</label>
                                                         <div class="col-sm-10">
  <select name="subject" class="form-control" id="default" required="required">
 <option value="">Select Subject</option>
@@ -135,7 +135,7 @@ if($query->rowCount() > 0)
 {
 foreach($results as $result)
 {   ?>
-<option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->SubjectName); ?></option>
+<option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->CourseTitle); ?></option>
 <?php }} ?>
  </select>
                                                         </div>

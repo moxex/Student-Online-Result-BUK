@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2021 at 12:57 AM
+-- Generation Time: Jun 08, 2021 at 10:33 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -112,7 +112,7 @@ INSERT INTO `tblresult` (`id`, `StudentId`, `ClassId`, `SubjectId`, `marks`, `Po
 CREATE TABLE `tblstudents` (
   `StudentId` int(11) NOT NULL,
   `StudentName` varchar(100) NOT NULL,
-  `RollId` varchar(100) NOT NULL,
+  `Regno` varchar(100) NOT NULL,
   `StudentEmail` varchar(100) NOT NULL,
   `Gender` varchar(10) NOT NULL,
   `DOB` varchar(100) NOT NULL,
@@ -126,9 +126,9 @@ CREATE TABLE `tblstudents` (
 -- Dumping data for table `tblstudents`
 --
 
-INSERT INTO `tblstudents` (`StudentId`, `StudentName`, `RollId`, `StudentEmail`, `Gender`, `DOB`, `ClassId`, `RegDate`, `UpdationDate`, `Status`) VALUES
-(1, 'Abhishek Choudhary', '46456', 'abhishek.cho472@gmail.com', 'Male', '1997-07-09', 1, '2018-10-12 10:30:57', '2018-10-23 18:44:37', 1),
-(2, 'Akshat Maheshwari', '10861', 'aks3d76@gmail.com', 'Male', '1997-06-11', 3, '2018-10-19 18:42:28', '2021-06-06 21:00:26', 1),
+INSERT INTO `tblstudents` (`StudentId`, `StudentName`, `Regno`, `StudentEmail`, `Gender`, `DOB`, `ClassId`, `RegDate`, `UpdationDate`, `Status`) VALUES
+(1, 'Abhishek Choudhary', 'SMS/16/ECO/00342', 'abhishek.cho472@gmail.com', 'Male', '1997-07-09', 1, '2018-10-12 10:30:57', '2021-06-08 20:31:01', 1),
+(2, 'Akshat Maheshwari', 'CST/15/COM/00011', 'aks3d76@gmail.com', 'Male', '1997-06-11', 3, '2018-10-19 18:42:28', '2021-06-08 20:31:26', 1),
 (3, 'Mohit Kumar', '2626', 'humar.mohit570@gmail.com', 'Male', '2014-08-06', 1, '2018-10-19 18:42:28', '2021-06-06 21:00:13', 1),
 (4, 'Divyanshu Tripathi', '990', 'hidivyanshu@gmail.com', 'Male', '1997-02-03', 3, '2018-10-19 18:42:28', '2021-06-06 21:00:17', 1),
 (5, 'Deepankar Singh', '122', 'singhdeepankar111@gmail.com', 'Male', '1997-02-03', 3, '2018-10-19 18:42:28', '2021-06-06 21:00:20', 1);
@@ -185,25 +185,25 @@ INSERT INTO `tblsubjectcombination` (`id`, `ClassId`, `SubjectId`, `status`, `Cr
 
 CREATE TABLE `tblsubjects` (
   `id` int(11) NOT NULL,
-  `SubjectName` varchar(100) NOT NULL,
-  `SubjectCode` varchar(100) NOT NULL,
+  `CourseTitle` varchar(100) NOT NULL,
+  `CourseCode` varchar(100) NOT NULL,
   `Creationdate` timestamp NOT NULL DEFAULT current_timestamp(),
-  `UpdationDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
+  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblsubjects`
 --
 
-INSERT INTO `tblsubjects` (`id`, `SubjectName`, `SubjectCode`, `Creationdate`, `UpdationDate`) VALUES
-(1, 'Maths', 'MTH01', '2018-10-23 17:21:20', '2018-10-23 17:21:20'),
-(2, 'English', 'ENG11', '2018-10-23 17:21:20', '2018-10-23 17:21:20'),
-(4, 'Science', 'SC1', '2018-10-23 17:21:20', '2018-10-23 17:21:20'),
-(5, 'Music', 'MS', '2018-10-23 17:21:20', '2018-10-23 17:21:20'),
-(6, 'Social Studies', 'SS08', '2018-10-23 17:21:20', '2018-10-23 17:21:20'),
-(7, 'Physics', 'PH03', '2018-10-23 17:21:20', '2018-10-23 17:21:20'),
-(8, 'Chemistry', 'CH65', '2018-10-23 17:21:20', '2018-10-23 17:21:20'),
-(9, 'Geography', 'Geo101', '2021-06-06 21:56:26', '0000-00-00 00:00:00');
+INSERT INTO `tblsubjects` (`id`, `CourseTitle`, `CourseCode`, `Creationdate`, `UpdationDate`) VALUES
+(1, 'Maths', 'MTH01', '2018-10-23 17:21:20', NULL),
+(2, 'English', 'ENG11', '2018-10-23 17:21:20', NULL),
+(4, 'Science', 'SC1', '2018-10-23 17:21:20', NULL),
+(5, 'Music', 'MS', '2018-10-23 17:21:20', NULL),
+(6, 'Social Studies', 'SS08', '2018-10-23 17:21:20', NULL),
+(7, 'Physics', 'PH03', '2018-10-23 17:21:20', NULL),
+(8, 'Chemistry', 'CH65', '2018-10-23 17:21:20', NULL),
+(9, 'Geography', 'Geo101', '2021-06-06 21:56:26', NULL);
 
 --
 -- Indexes for dumped tables

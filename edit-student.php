@@ -19,7 +19,7 @@ $gender=$_POST['gender'];
 $classid=$_POST['class']; 
 $dob=$_POST['dob']; 
 $status=$_POST['status'];
-$sql="update tblstudents set StudentName=:studentname,RollId=:roolid,StudentEmail=:studentemail,Gender=:gender,DOB=:dob,Status=:status where StudentId=:stid ";
+$sql="update tblstudents set StudentName=:studentname,Regno=:roolid,StudentEmail=:studentemail,Gender=:gender,DOB=:dob,Status=:status where StudentId=:stid ";
 $query = $dbh->prepare($sql);
 $query->bindParam(':studentname',$studentname,PDO::PARAM_STR);
 $query->bindParam(':roolid',$roolid,PDO::PARAM_STR);
@@ -111,7 +111,7 @@ else if($error){?>
                                                 <form class="form-horizontal" method="post">
 <?php 
 
-$sql = "SELECT tblstudents.StudentName,tblstudents.RollId,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblstudents.StudentEmail,tblstudents.Gender,tblstudents.DOB,tblclasses.Department,tblclasses.Semester from tblstudents join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.StudentId=:stid";
+$sql = "SELECT tblstudents.StudentName,tblstudents.Regno,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblstudents.StudentEmail,tblstudents.Gender,tblstudents.DOB,tblclasses.Department,tblclasses.Semester from tblstudents join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.StudentId=:stid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':stid',$stid,PDO::PARAM_STR);
 $query->execute();
@@ -131,9 +131,9 @@ foreach($results as $result)
 </div>
 
 <div class="form-group">
-<label for="default" class="col-sm-2 control-label">Rool Id</label>
+<label for="default" class="col-sm-2 control-label">Regno</label>
 <div class="col-sm-10">
-<input type="text" name="rollid" class="form-control" id="rollid" value="<?php echo htmlentities($result->RollId)?>" maxlength="5" required="required" autocomplete="off">
+<input type="text" name="rollid" class="form-control" id="rollid" value="<?php echo htmlentities($result->Regno)?>" maxlength="5" required="required" autocomplete="off">
 </div>
 </div>
 
@@ -175,9 +175,9 @@ if($gndr=="Other")
 
 
                                                     <div class="form-group">
-                                                        <label for="default" class="col-sm-2 control-label">Class</label>
+                                                        <label for="default" class="col-sm-2 control-label">Course</label>
                                                         <div class="col-sm-10">
-<input type="text" name="classname" class="form-control" id="classname" value="<?php echo htmlentities($result->ClassName)?>(<?php echo htmlentities($result->Semester)?>)" readonly>
+<input type="text" name="classname" class="form-control" id="classname" value="<?php echo htmlentities($result->Department)?>(<?php echo htmlentities($result->Semester)?>)" readonly>
                                                         </div>
                                                     </div>
 <div class="form-group">

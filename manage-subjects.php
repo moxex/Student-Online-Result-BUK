@@ -137,8 +137,8 @@ foreach($results as $result)
 {   ?>
 <tr>
  <td><?php echo htmlentities($cnt);?></td>
-                                                            <td><?php echo htmlentities($result->SubjectName);?></td>
-                                                            <td><?php echo htmlentities($result->SubjectCode);?></td>
+                                                            <td><?php echo htmlentities($result->CourseTitle);?></td>
+                                                            <td><?php echo htmlentities($result->CourseCode);?></td>
                                                             <td><?php echo htmlentities($result->Creationdate);?></td>
                                                             <td><?php echo htmlentities($result->UpdationDate);?></td>
 <td>

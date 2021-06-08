@@ -148,7 +148,7 @@ else if($error){?>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
-<?php $sql = "SELECT tblclasses.Department,tblclasses.Semester,tblsubjects.SubjectName,tblsubjectcombination.id as scid,tblsubjectcombination.status from tblsubjectcombination join tblclasses on tblclasses.id=tblsubjectcombination.ClassId  join tblsubjects on tblsubjects.id=tblsubjectcombination.SubjectId";
+<?php $sql = "SELECT tblclasses.Department,tblclasses.Semester,tblsubjects.CourseTitle,tblsubjectcombination.id as scid,tblsubjectcombination.status from tblsubjectcombination join tblclasses on tblclasses.id=tblsubjectcombination.ClassId  join tblsubjects on tblsubjects.id=tblsubjectcombination.SubjectId";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -160,7 +160,7 @@ foreach($results as $result)
 <tr>
  <td><?php echo htmlentities($cnt);?></td>
                                                             <td><?php echo htmlentities($result->Department);?> &nbsp; Section-<?php echo htmlentities($result->Semester);?></td>
-                                                            <td><?php echo htmlentities($result->SubjectName);?></td>
+                                                            <td><?php echo htmlentities($result->CourseTitle);?></td>
                                                              <td><?php $stts=$result->status;
 if($stts=='0')
 {

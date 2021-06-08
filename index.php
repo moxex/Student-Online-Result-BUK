@@ -82,13 +82,13 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
 <!--Starting of student login form -->
                                                 <form action="result.php" method="post">
                                                   <div class="form-group">
-                                                    <label for="rollid">Enter your Roll Id</label>
+                                                    <label for="rollid">Enter your RegNo</label>
                                                       <div>
-                                                        <input type="text" class="form-control" id="rollid" placeholder="Enter Your Roll Id" autocomplete="off" name="rollid">
+                                                        <input type="text" class="form-control" placeholder="SMS/16/ECO/00342" id="rollid" placeholder="Enter Your Roll Id" autocomplete="off" name="rollid">
                                                       </div>
                                                   </div>
                                                   <div class="form-group">
-                                                    <label for="default" class="left">Class</label>
+                                                    <label for="default" class="left">Course</label>
                                                     <select name="class" class="form-control" id="default" required="required">
                                                       <option value="">Select Class</option>
                                                       <?php $sql = "SELECT * from tblclasses";

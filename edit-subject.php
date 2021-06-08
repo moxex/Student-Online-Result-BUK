@@ -10,11 +10,11 @@ if(strlen($_SESSION['alogin'])=="")
 if(isset($_POST['Update']))
 {
 $sid=intval($_GET['subjectid']);
-$subjectname=$_POST['subjectname'];
+$CourseTitle=$_POST['CourseTitle'];
 $subjectcode=$_POST['subjectcode']; 
-$sql="update  tblsubjects set SubjectName=:subjectname,SubjectCode=:subjectcode where id=:sid";
+$sql="update  tblsubjects set CourseTitle=:CourseTitle,SubjectCode=:subjectcode where id=:sid";
 $query = $dbh->prepare($sql);
-$query->bindParam(':subjectname',$subjectname,PDO::PARAM_STR);
+$query->bindParam(':CourseTitle',$CourseTitle,PDO::PARAM_STR);
 $query->bindParam(':subjectcode',$subjectcode,PDO::PARAM_STR);
 $query->bindParam(':sid',$sid,PDO::PARAM_STR);
 $query->execute();
@@ -109,13 +109,13 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {   ?>                                               
                                                     <div class="form-group">
-                                                        <label for="default" class="col-sm-2 control-label">Subject Name</label>
+                                                        <label for="default" class="col-sm-2 control-label">Course Title</label>
                                                         <div class="col-sm-10">
- <input type="text" name="subjectname" value="<?php echo htmlentities($result->SubjectName);?>" class="form-control" id="default" placeholder="Subject Name" required="required">
+ <input type="text" name="CourseTitle" value="<?php echo htmlentities($result->CourseTitle);?>" class="form-control" id="default" placeholder="Subject Name" required="required">
                                                         </div>
                                                     </div>
 <div class="form-group">
-                                                        <label for="default" class="col-sm-2 control-label">Subject Code</label>
+                                                        <label for="default" class="col-sm-2 control-label">Course Code</label>
                                                         <div class="col-sm-10">
  <input type="text" name="subjectcode" class="form-control" value="<?php echo htmlentities($result->SubjectCode);?>"  id="default" placeholder="Subject Code" required="required">
                                                         </div>

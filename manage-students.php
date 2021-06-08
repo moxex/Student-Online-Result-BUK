@@ -109,8 +109,8 @@ else if($error){?>
                                                         <tr>
                                                             <th>#</th>
                                                             <th>Student Name</th>
-                                                            <th>Roll Id</th>
-                                                            <th>Class</th>
+                                                            <th>Regno</th>
+                                                            <th>Department</th>
                                                             <th>Reg Date</th>
                                                             <th>Status</th>
                                                             <th>Action</th>
@@ -120,15 +120,15 @@ else if($error){?>
                                                         <tr>
                                                           <th>#</th>
                                                             <th>Student Name</th>
-                                                            <th>Roll Id</th>
-                                                            <th>Class</th>
+                                                            <th>Regno</th>
+                                                            <th>Department</th>
                                                             <th>Reg Date</th>
                                                             <th>Status</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
-<?php $sql = "SELECT tblstudents.StudentName,tblstudents.RollId,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblclasses.Department,tblclasses.Semester from tblstudents join tblclasses on tblclasses.id=tblstudents.ClassId";
+<?php $sql = "SELECT tblstudents.StudentName,tblstudents.Regno,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblclasses.Department,tblclasses.Semester from tblstudents join tblclasses on tblclasses.id=tblstudents.ClassId";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -140,7 +140,7 @@ foreach($results as $result)
 <tr>
  <td><?php echo htmlentities($cnt);?></td>
                                                             <td><?php echo htmlentities($result->StudentName);?></td>
-                                                            <td><?php echo htmlentities($result->RollId);?></td>
+                                                            <td><?php echo htmlentities($result->Regno);?></td>
                                                             <td><?php echo htmlentities($result->Department);?>(<?php echo htmlentities($result->Semester);?>)</td>
                                                             <td><?php echo htmlentities($result->RegDate);?></td>
                                                              <td><?php if($result->Status==1){

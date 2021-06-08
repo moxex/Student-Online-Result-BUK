@@ -16,7 +16,7 @@ $gender=$_POST['gender'];
 $classid=$_POST['class']; 
 $dob=$_POST['dob']; 
 $status=1;
-$sql="INSERT INTO  tblstudents(StudentName,RollId,StudentEmail,Gender,ClassId,DOB,Status) VALUES(:studentname,:roolid,:studentemail,:gender,:classid,:dob,:status)";
+$sql="INSERT INTO  tblstudents(StudentName,Regno,StudentEmail,Gender,ClassId,DOB,Status) VALUES(:studentname,:roolid,:studentemail,:gender,:classid,:dob,:status)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':studentname',$studentname,PDO::PARAM_STR);
 $query->bindParam(':roolid',$roolid,PDO::PARAM_STR);
@@ -121,9 +121,9 @@ else if($error){?>
 </div>
 
 <div class="form-group">
-<label for="default" class="col-sm-2 control-label">Rool Id</label>
+<label for="default" class="col-sm-2 control-label" >Reg No</label>
 <div class="col-sm-10">
-<input type="text" name="rollid" class="form-control" id="rollid" maxlength="5" required="required" autocomplete="off">
+<input type="text" name="rollid" class="form-control" Placeholder="SMS/16/ECO/00342" id="rollid" maxlength="5" required="required" autocomplete="off">
 </div>
 </div>
 
@@ -153,7 +153,7 @@ else if($error){?>
 
 
                                                     <div class="form-group">
-                                                        <label for="default" class="col-sm-2 control-label">Class</label>
+                                                        <label for="default" class="col-sm-2 control-label">Course</label>
                                                         <div class="col-sm-10">
  <select name="class" class="form-control" id="default" required="required">
 <option value="">Select Class</option>
@@ -165,7 +165,7 @@ if($query->rowCount() > 0)
 {
 foreach($results as $result)
 {   ?>
-<option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->ClassName); ?>&nbsp; Section-<?php echo htmlentities($result->Section); ?></option>
+<option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->Department); ?>&nbsp; Section-<?php echo htmlentities($result->Semester); ?></option>
 <?php }} ?>
  </select>
                                                         </div>

@@ -128,7 +128,7 @@ else if($error){?>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
-<?php $sql = "SELECT distinct tblstudents.StudentName,tblstudents.RollId,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblclasses.Department,tblclasses.Semester from tblresult join tblstudents on tblstudents.StudentId=tblresult.StudentId join tblclasses on tblclasses.id=tblresult.ClassId";
+<?php $sql = "SELECT distinct tblstudents.StudentName,tblstudents.Regno,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblclasses.Department,tblclasses.Semester from tblresult join tblstudents on tblstudents.StudentId=tblresult.StudentId join tblclasses on tblclasses.id=tblresult.ClassId";
 $query = $dbh->prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -140,7 +140,7 @@ foreach($results as $result)
 <tr>
  <td><?php echo htmlentities($cnt);?></td>
                                                             <td><?php echo htmlentities($result->StudentName);?></td>
-                                                            <td><?php echo htmlentities($result->RollId);?></td>
+                                                            <td><?php echo htmlentities($result->Regno);?></td>
                                                             <td><?php echo htmlentities($result->Department);?>(<?php echo htmlentities($result->Semester);?>)</td>
                                                             <td><?php echo htmlentities($result->RegDate);?></td>
                                                              <td><?php if($result->Status==1){

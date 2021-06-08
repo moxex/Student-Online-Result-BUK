@@ -56,7 +56,7 @@ $rollid=$_POST['rollid'];
 $classid=$_POST['class'];
 $_SESSION['rollid']=$rollid;
 $_SESSION['classid']=$classid;
-$qery = "SELECT   tblstudents.StudentName,tblstudents.RollId,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblclasses.Department,tblclasses.Semester from tblstudents join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.RollId=:rollid and tblstudents.ClassId=:classid ";
+$qery = "SELECT   tblstudents.StudentName,tblstudents.Regno,tblstudents.RegDate,tblstudents.StudentId,tblstudents.Status,tblclasses.Department,tblclasses.Semester from tblstudents join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.Regno=:rollid and tblstudents.ClassId=:classid ";
 $stmt = $dbh->prepare($qery);
 $stmt->bindParam(':rollid',$rollid,PDO::PARAM_STR);
 $stmt->bindParam(':classid',$classid,PDO::PARAM_STR);
@@ -68,7 +68,7 @@ if($stmt->rowCount() > 0)
 foreach($resultss as $row)
 {   ?>
 <p><b>Student Name :</b> <?php echo htmlentities($row->StudentName);?></p>
-<p><b>Student Roll Id :</b> <?php echo htmlentities($row->RollId);?>
+<p><b>Student Roll Id :</b> <?php echo htmlentities($row->Regno);?>
 <p><b>Student Class:</b> <?php echo htmlentities($row->Department);?>(<?php echo htmlentities($row->Semester);?>)
 <?php }
 
@@ -86,7 +86,7 @@ foreach($resultss as $row)
                                                 <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Subject</th>    
+                                                            <th>Course Title</th>    
                                                             <th>Marks</th>
                                                         </tr>
                                                </thead>
@@ -98,7 +98,7 @@ foreach($resultss as $row)
 <?php                                              
 // Code for result
 
- $query ="select t.StudentName,t.RollId,t.ClassId,t.marks,SubjectId,tblsubjects.SubjectName from (select sts.StudentName,sts.RollId,sts.ClassId,tr.marks,SubjectId from tblstudents as sts join  tblresult as tr on tr.StudentId=sts.StudentId) as t join tblsubjects on tblsubjects.id=t.SubjectId where (t.RollId=:rollid and t.ClassId=:classid)";
+ $query ="select t.StudentName,t.Regno,t.ClassId,t.marks,SubjectId,tblsubjects.CourseTitle from (select sts.StudentName,sts.Regno,sts.ClassId,tr.marks,SubjectId from tblstudents as sts join  tblresult as tr on tr.StudentId=sts.StudentId) as t join tblsubjects on tblsubjects.id=t.SubjectId where (t.Regno=:rollid and t.ClassId=:classid)";
 $query= $dbh -> prepare($query);
 $query->bindParam(':rollid',$rollid,PDO::PARAM_STR);
 $query->bindParam(':classid',$classid,PDO::PARAM_STR);
@@ -114,7 +114,7 @@ foreach($results as $result){
 
                                                 		<tr>
                                                 <th scope="row"><?php echo htmlentities($cnt);?></th>
-                                                			<td><?php echo htmlentities($result->SubjectName);?></td>
+                                                			<td><?php echo htmlentities($result->CourseTitle);?></td>
                                                 			<td><?php echo htmlentities($totalmarks=$result->marks);?></td>
                                                 		</tr>
 <?php 
@@ -147,7 +147,7 @@ $cnt++;}
 <div class="alert alert-danger left-icon-alert" role="alert">
 strong>Oh snap!</strong>
 <?php
-echo htmlentities("Invalid Roll Id");
+echo htmlentities("Invalid Regno");
  }
 ?>
                                         </div>

@@ -14,7 +14,7 @@ $class=$_POST['class'];
 $studentid=$_POST['studentid']; 
 $mark=$_POST['marks'];
 
- $stmt = $dbh->prepare("SELECT tblsubjects.SubjectName,tblsubjects.id FROM tblsubjectcombination join  tblsubjects on  tblsubjects.id=tblsubjectcombination.SubjectId WHERE tblsubjectcombination.ClassId=:cid order by tblsubjects.SubjectName");
+ $stmt = $dbh->prepare("SELECT tblsubjects.CourseTitle,tblsubjects.id FROM tblsubjectcombination join  tblsubjects on  tblsubjects.id=tblsubjectcombination.CourseCode WHERE tblsubjectcombination.Department=:cid order by tblsubjects.CourseTitle");
  $stmt->execute(array(':cid' => $class));
   $sid1=array();
  while($row=$stmt->fetch(PDO::FETCH_ASSOC))
@@ -26,7 +26,7 @@ array_push($sid1,$row['id']);
 for($i=0;$i<count($mark);$i++){
     $mar=$mark[$i];
   $sid=$sid1[$i];
-$sql="INSERT INTO  tblresult(StudentId,ClassId,SubjectId,marks) VALUES(:studentid,:class,:sid,:marks)";
+$sql="INSERT INTO  tblresult(StudentId,Department,CourseCode,marks) VALUES(:studentid,:class,:sid,:marks)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':studentid',$studentid,PDO::PARAM_STR);
 $query->bindParam(':class',$class,PDO::PARAM_STR);
@@ -195,7 +195,7 @@ foreach($results as $result)
                                                     </div>
                                                     
 <div class="form-group">
-                                                        <label for="date" class="col-sm-2 control-label">Subjects</label>
+                                                        <label for="date" class="col-sm-2 control-label">Course</label>
                                                         <div class="col-sm-10">
                                                     <div  id="subject">
                                                     </div>

@@ -138,7 +138,7 @@ foreach($result as $row)
 
 
 <?php 
-$sql = "SELECT distinct tblstudents.StudentName,tblstudents.StudentId,tblclasses.Department,tblclasses.Semester,tblsubjects.SubjectName,tblresult.marks,tblresult.id as resultid from tblresult join tblstudents on tblstudents.StudentId=tblresult.StudentId join tblsubjects on tblsubjects.id=tblresult.SubjectId join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.StudentId=:stid ";
+$sql = "SELECT distinct tblstudents.StudentName,tblstudents.StudentId,tblclasses.Department,tblclasses.Semester,tblsubjects.CourseTitle,tblresult.marks,tblresult.id as resultid from tblresult join tblstudents on tblstudents.StudentId=tblresult.StudentId join tblsubjects on tblsubjects.id=tblresult.SubjectId join tblclasses on tblclasses.id=tblstudents.ClassId where tblstudents.StudentId=:stid ";
 $query = $dbh->prepare($sql);
 $query->bindParam(':stid',$stid,PDO::PARAM_STR);
 $query->execute();
