@@ -133,7 +133,7 @@ foreach($results as $result)
 <div class="form-group">
 <label for="default" class="col-sm-2 control-label">Regno</label>
 <div class="col-sm-10">
-<input type="text" name="rollid" class="form-control" id="rollid" value="<?php echo htmlentities($result->Regno)?>" maxlength="5" required="required" autocomplete="off">
+<input type="text" name="rollid" class="form-control" id="rollid" value="<?php echo htmlentities($result->Regno)?>" maxlength="17" required="required" autocomplete="off">
 </div>
 </div>
 
