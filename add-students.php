@@ -123,7 +123,7 @@ else if($error){?>
 <div class="form-group">
 <label for="default" class="col-sm-2 control-label" >Reg No</label>
 <div class="col-sm-10">
-<input type="text" name="rollid" class="form-control" Placeholder="SMS/16/ECO/00342" id="rollid" maxlength="5" required="required" autocomplete="off">
+<input type="text" name="rollid" class="form-control" Placeholder="SMS/16/ECO/00342" id="rollid" maxlength="17" required="required" autocomplete="off">
 </div>
 </div>
 
